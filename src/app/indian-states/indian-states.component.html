@@ -1,0 +1,70 @@
+<div class="container bg-light text-dark text-center shadow rounded">
+    <div class="row">
+      <div class="col fs-2 fw-bold">
+        ACTIVE
+      </div>
+      <div class="col fs-2 fw-bold">
+        RECOVERED
+      </div>
+      <div class="col fs-2 fw-bold">
+        DEATH
+      </div>
+    </div>
+    <div class="row p-2">
+        <div class="col fs-4 fw-lighter">
+        {{data?.activeCases | number}}  <br> <span class="fs-6 bg-transparent fw-bolder badge text-warning">[+{{data?.activeCasesNew | number}}]</span>
+        </div>
+        <div class="col fs-4 fw-lighter">
+        {{data?.recovered | number}} <br> <span class="fs-6 bg-transparent fw-bolder badge text-success">[+{{data?.recoveredNew | number}}]</span>
+        </div>
+        <div class="col fs-4 fw-lighter">
+        {{data?.deaths | number}} <br> <span class="fs-6 bg-transparent fw-bolder badge text-danger">[+{{data?.deathsNew | number}}]</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col fs-3 fw-bold">
+          TOTAL CASES
+        </div>
+    </div>
+      <div class="row p-2">
+          <div class="col fs-5 fw-lighter">
+              {{data?.totalCases | number}}
+          </div>
+      </div>
+  </div>
+<br>
+<div class="container bg-light text-dark rounded">
+
+  <div class="row p-2" style="height: 265px;">
+    <div class="col fs-2 fw-bold">
+      <span class="fw-bold font-monospace text-dark fs-2">Select a State</span>
+      <select class="form-select bg-dark text-light w-100" aria-label="Default select example" (change)="setState()"
+        [(ngModel)]=stateName>
+        <option value={{null}} selected>Select a state</option>
+        <option *ngFor="let d of data.regionData;" value={{d?.region}}> {{d?.region}}</option>
+      </select>
+    </div>
+
+    <div class="col">
+      <div class="card w-100" *ngIf="stateName" style="user-select: none;">
+        <div class="card-body">
+          <h5 class="card-title fs-4 pl-2 ml-2 bg-dark text-light p-2" style="margin-left: 10px;"><strong>{{stateSelected?.region}}</strong></h5>
+          <p class="card-text fs-6 fw-light m-2">Cases:  <span class="text-dark fw-bold fs-5">{{stateSelected?.totalInfected | number}}</span>
+              <!-- <span class="badge bg-transparent text-danger">{{stateSelected.todayCases}}</span> -->
+          </p>
+          <p class="card-text fs-6 fw-light m-2">Active: <span class="text-dark fw-bold fs-5">{{stateSelected?.activeCases | number}}</span>
+              <span class="badge bg-transparent text-warning">[+{{stateSelected?.newInfected | number}}]</span>
+          </p>
+          <p class="card-text fs-6 fw-light m-2">Recovered: <span class="text-dark fw-bold fs-5">{{stateSelected?.recovered | number}}</span>
+              <span class="badge bg-transparent text-success">[+{{stateSelected?.newRecovered | number}}]</span>
+          </p>
+          <p class="card-text fs-6 fw-light m-2">Deaths: <span class="text-dark fw-bold fs-5">{{stateSelected?.deceased | number}}</span> 
+              <span class="badge bg-transparent text-danger">[+{{stateSelected?.newDeceased | number}}]</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+</div>

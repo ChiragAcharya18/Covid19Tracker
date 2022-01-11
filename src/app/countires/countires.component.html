@@ -1,0 +1,41 @@
+<div class="container m-4 p-4">
+  <div class="row">
+      <div class="col-12">
+          <span class="fw-bold font-monospace text-white fs-2">Select a country</span>
+          <select class="form-select bg-dark text-light w-50" aria-label="Default select example"
+              (change)="setCountry()" [(ngModel)]=countryName>
+              <option value={{null}} selected>Select a country</option>
+              <option *ngFor="let d of countryDropDown;" value={{d?.name}}>  {{d?.name}}</option>
+          </select> <br><br>
+      </div>
+      <div class="col" hidden>
+
+      </div>
+      <div class="col-12">
+          <div class="card w-50" *ngIf="countryName" style="user-select: none;">
+              <div class="card-body">
+                  <h5 class="card-title fs-4 pl-2 ml-2 bg-white text-dark p-2" style="margin-left: 15px;">
+                    <strong>{{countryName | uppercase}}</strong>
+                    <span class="float-end"><img [src]="countrySelected.countryInfo.flag" alt="flag-image" style="margin-bottom: 75px;" height="30px" width="40px"></span>
+                  </h5>
+                  <p class="card-text fs-6 fw-light p-2 m-2">Cases: <span
+                          class="text-dark fw-bold fs-5">{{countrySelected?.cases | number}}</span>
+                      <span class="badge bg-transparent text-warning">[+{{countrySelected?.todayCases | number}}]</span>
+                  </p>
+                  <p class="card-text fs-6 fw-light p-2 m-2">Active: <span
+                          class="text-dark fw-bold fs-5">{{countrySelected?.active | number}}</span>
+                      <!-- <span class="badge bg-transparent text-danger">{{countrySelected.todayCases}}</span> -->
+                  </p>
+                  <p class="card-text fs-6 fw-light p-2 m-2">Recovered: <span
+                          class="text-dark fw-bold fs-5">{{countrySelected?.recovered | number}}</span>
+                      <span class="badge bg-transparent text-success">[+{{countrySelected?.todayRecovered |number}}]</span>
+                  </p>
+                  <p class="card-text fs-6 fw-light p-2 m-2">Deaths: <span
+                          class="text-dark fw-bold fs-5">{{countrySelected?.deaths | number}}</span>
+                      <span class="badge bg-transparent text-danger">[+{{countrySelected?.todayDeaths | number}}]</span>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

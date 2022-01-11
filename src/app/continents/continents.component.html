@@ -1,0 +1,39 @@
+<div class="container m-4 p-4">
+    <div class="row">
+        <div class="col-12">
+            <span class="fw-bold font-monospace text-white fs-2">Select a Continent</span>
+            <select class="form-select bg-dark text-light w-50" aria-label="Default select example"
+                (change)="setContinent()" [(ngModel)]=continentName>
+                <option value={{null}} selected>Select a continent</option>
+                <option *ngFor="let d of data;" value={{d.continent}}> {{d.continent}}</option>
+            </select> <br><br>
+        </div>
+        <div class="col" hidden>
+
+        </div>
+        <div class="col-12">
+            <div class="card w-50" *ngIf="continentName" style="user-select: none;">
+                <div class="card-body">
+                    <h5 class="card-title fs-4 pl-2 ml-2 bg-dark text-light p-2" style="margin-left: 15px;"><strong>{{continentName | uppercase}}</strong>
+                    </h5>
+                    <p class="card-text fs-6 fw-light p-2 m-2">Cases: <span
+                            class="text-dark fw-bold fs-5">{{continentSelected.cases | number}}</span>
+                        <span class="badge bg-transparent text-warning">[+{{continentSelected.todayCases | number}}]</span>
+                    </p>
+                    <p class="card-text fs-6 fw-light p-2 m-2">Active: <span
+                            class="text-dark fw-bold fs-5">{{continentSelected.active | number}}</span>
+                        <!-- <span class="badge bg-transparent text-danger">{{continentSelected.todayCases}}</span> -->
+                    </p>
+                    <p class="card-text fs-6 fw-light p-2 m-2">Recovered: <span
+                            class="text-dark fw-bold fs-5">{{continentSelected.recovered | number}}</span>
+                        <span class="badge bg-transparent text-success">[+{{continentSelected.todayRecovered |number}}]</span>
+                    </p>
+                    <p class="card-text fs-6 fw-light p-2 m-2">Deaths: <span
+                            class="text-dark fw-bold fs-5">{{continentSelected.deaths | number}}</span>
+                        <span class="badge bg-transparent text-danger">[+{{continentSelected.todayDeaths | number}}]</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
