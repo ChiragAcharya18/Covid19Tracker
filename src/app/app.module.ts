@@ -11,6 +11,8 @@ import { IndianStatesComponent } from './indian-states/indian-states.component';
 import { FormsModule } from '@angular/forms';
 import { httpIntecptorProviders } from './httpIntecptorIndex';
 import { ToastrModule } from 'ngx-toastr';
+import { FooterComponent } from './footer/footer.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ToastrModule } from 'ngx-toastr';
     ContinentsComponent,
     SpinnerComponent,
     CountiresComponent,
-    IndianStatesComponent
+    IndianStatesComponent,
+    FooterComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

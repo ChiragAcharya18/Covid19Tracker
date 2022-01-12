@@ -19,6 +19,9 @@ export class SharedService {
   }
 
   getIndianStatesCasesData(): Observable<any[]> {
-    return this.http.get<any[]>("https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST?disableRedirect=true");
+    return this.http.get<any[]>("https://disease.sh/v3/covid-19/gov/India");
   }
+  // getIndianStatesCasesData(): Observable<any[]> {
+  //   return this.http.get<any[]>("https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST?disableRedirect=true");
+  // }
 }

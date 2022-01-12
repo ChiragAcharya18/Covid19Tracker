@@ -21,13 +21,13 @@ export class IndianStatesComponent implements OnInit {
   getData() {
     this._s.getIndianStatesCasesData().subscribe((data: any) => {
       this.data = data;
-      //console.log(data);
+      console.log(data);
     });
   }
 
   setState() {
     this.spinner.requestStarted();
-    this.stateSelected = this.data.regionData.filter((d: any)=> d.region === this.stateName)[0];
+    this.stateSelected = this.data.states.filter((d: any)=> d.state === this.stateName)[0];
     //console.log(this.stateSelected);
     this.spinner.requestEnded();
   }

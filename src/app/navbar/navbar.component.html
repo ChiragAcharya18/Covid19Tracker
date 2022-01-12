@@ -10,13 +10,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="Continents">Continents</a>
+            <a class="nav-link active" aria-current="page" [routerLink]="['Continents']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Continents</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="countries">Countries</a>
+            <a class="nav-link active" aria-current="page" [routerLink]="['countries']" routerLinkActive="active" >Countries</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="indian-states">Indian States</a>
+            <a class="nav-link active" aria-current="page" [routerLink]="['indian-states']" routerLinkActive="active" >Indian States</a>
           </li>
          
           <li class="nav-item dropdown" hidden>
